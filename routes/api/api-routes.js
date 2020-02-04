@@ -8,11 +8,13 @@ const s3 = new AWS.S3({
 });
 
 module.exports = function(app) {
-  app.get("/", function(req, res) {
-  });
+  // app.get("/", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/test.html"));
+  // });
 
-  app.post("/api/post", function(req, res) {
-    const fileName = req.file
+  app.post("/upload", function(req, res) {
+    const fileName = req.files
+    console.log(fileName)
     fs.readFile(fileName, (err, data) => {
         if (err) throw err;
         const params = {

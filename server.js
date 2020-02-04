@@ -1,6 +1,7 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
+const routes = require("./routes")
 
 // Sets up the Express App
 // =============================================================
@@ -19,7 +20,7 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-app.use(routes);
+app.use(routes)
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
