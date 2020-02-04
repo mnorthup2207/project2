@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mnorthup2207/project2#readme",
   "dependencies": {
+    "aws-sdk": "^2.611.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
