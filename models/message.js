@@ -20,5 +20,5 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    return Stream;
+    return Message;
 };
