@@ -22,11 +22,22 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        account_type: {
-            type: DataTypes.STRING
-            ,defaultValue: 3
-        }
+
     });
+
+    User.associate = models => {
+        User.hasMany(models.Raft, {
+            onDelete: "cascade"
+        });
+
+        User.belongsTo(models.AcctType, {
+            as: "account_type",
+            foreignKey: {
+                allowNull: false,
+                defaultValue: 2
+            }
+        });
+    }
 
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);

@@ -4,20 +4,29 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
             , allowNull: false
         },
-        user_id: {
-            type: DataTypes.INTEGER
-            , allowNull: false
-        },
-        type_id: {
-            type: DataTypes.INTEGER
-            , allowNull: false
-            , defaultValue: 1
-        },
         location: {
             type: DataTypes.STRING
             , allowNull: false
         }
     });
+
+
+    Raft.associate = models => {
+        Raft.belongsTo(models.User, {
+            foreignKey: {
+                name: "user_id",
+                allowNull: false
+            },
+        });
+
+        Raft.belongsTo(models.DocType, {
+            foreignKey: {
+                name: "type_id",
+                allowNull: false,
+                defaultValue: 1
+            },
+        });
+    };
 
     return Raft;
 };

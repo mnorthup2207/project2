@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const AcctType = sequelize.define("account_types", {
+    const AcctType = sequelize.define("AcctType", {
         type: {
             type: DataTypes.INTEGER
         },
@@ -8,6 +8,12 @@ module.exports = (sequelize, DataTypes) => {
             , defaultValue: 0
         }
     });
+    
+    AcctType.associate = (models) => {
+        AcctType.hasMany(models.User, {
+            onDelete: "cascade" 
+        });
+    }
 
     return AcctType;
 };

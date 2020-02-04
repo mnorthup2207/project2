@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const LinkStream = sequelize.define("link_streams", {
+    const LinkStream = sequelize.define("LinkStream", {
         user_id: {
             type: DataTypes.INTEGER
         },
