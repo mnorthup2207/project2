@@ -1,31 +1,39 @@
 const db = require("../../models");
 const fs = require('fs');
+// const express = require("express");
 const AWS = require('aws-sdk');
 const router = require("express").Router();
+const fileUpload = require("express-fileupload");
 
 const s3 = new AWS.S3({
-  accessKeyId: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
+
+router.use(fileUpload())
+// router.use(express.static("public"))
 
 router.post("/upload", function (req, res) {
     console.log("Yay!")
-    const fileName = req.files
-    console.log(fileName)
-    fs.readFile(fileName, (err, data) => {
-      if (err) throw err;
-      const params = {
+    if (!req.files) {
+        return res.status(400).send("No file was uploaded.");
+    }
+    
+    const uploadFile = req.files.upload;
+    console.log(uploadFile)
+    
+    const params = {
         Bucket: 'du-bootcamp-project2',
-        Key: fileName,
-        Body: JSON.stringify(data, null, 2)
-      };
-      s3.upload(params, function (s3Err, data) {
-        if (s3Err) throw s3Err
-        console.log(`File uploaded successfully at ${data.Location}`)
-        res.status(500).end()
-        return `https://s3-yourawsregioncode-amazonaws.com/du-bootcamp-project2/${data.Location}`
-      });
+        Key: `${Date.now()}-${uploadFile.name}`,
+        Body: uploadFile.data
+    };
+    
+    s3.upload(params, (err, response) => {
+        if (err) throw err;
+    
+        console.log(`File uploaded successfully at ${response.Location}`);
+        res.json({ url: response.Location, data: req.body });
     });
-  })
-  
-  module.exports = router
+})
+
+module.exports = router
