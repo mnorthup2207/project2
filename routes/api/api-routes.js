@@ -1,7 +1,7 @@
 const db = require("../../models");
 const fs = require('fs');
 const AWS = require('aws-sdk');
-const passport = require("../config/passport") 
+// const passport = require("../config/passport") 
 
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY,
