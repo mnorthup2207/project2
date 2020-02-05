@@ -57,7 +57,7 @@ body{
 .navBar{
     width: 100%;
     height: 6rem;
-    background:#ccc;
+    background:whitesmoke;
     display:block;
     margin:auto;
     position:relative;
@@ -77,7 +77,7 @@ body{
 .welcomeBar{
     width: 80%;
     height: 2.5rem;
-    background: #ccc;
+    background: whitesmoke;
     display: block;
     margin: auto;
     position: relative;
@@ -94,7 +94,7 @@ body{
 #updateUser, #streamsPage, #raftsPage {
     width: 100%;
     height: 4.2rem;
-    background: #ccc;
+    background: whitesmoke;
     display: block;
     margin: auto;
     position: relative;
