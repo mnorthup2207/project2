@@ -1,21 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Example App</title>
-	</head>
-	<body>
-		
-		
-		<!-- Creating basic form that is setup to post to `/upload` on our Express server, this must match the same route that we created in Express.js, so long as they match you can name it whatever you want -->
-		<form ref="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-			<!-- Creating the input field with the name "sampleFile", the "sampleFile" must match the section in your Express.js route, so long as they match you can call it whatever you want -->
-			<input type="file" name="sampleFile"/>
-			<br><br>
-			<!-- Creating submit button to actually submit the form to the backend -->
-			<input type="submit" value="Upload!"/>
-		</form>
-		
-		
-	</body>
-</html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>S3 Upload Example</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1>Uploading Test</h1>
+		</header>
+
+		<div>
+			<form id="upload-widget" method="post" action="api/s3/upload" class="dropzone">
+				<div class="fallback">
+					<input name="file" type="file" />
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+	<script type="text/javascript">
+		Dropzone.options.uploadWidget = {
+			paramName: 'file',
+			maxFilesize: 2, // MB
+			maxFiles: 1,
+			dictDefaultMessage: 'Drag an image here to upload, or click to select one',
+			headers: {
+				'x-csrf-token': document.querySelector('meta[name=csrf-token]').getAttributeNode('content').value,
+			},
+			acceptedFiles: 'image/*',
+			init: function () {
+				this.on('success', function (file, resp) {
+					console.log(file);
+					console.log(resp);
+				});
+				this.on('thumbnail', function (file) {
+					if (file.accepted !== false) {
+						if (file.width < 640 || file.height < 480) {
+							file.rejectDimensions();
+						} else {
+							file.acceptDimensions();
+						}
+					}
+				});
+			},
+			accept: function (file, done) {
+				file.acceptDimensions = done;
+				file.rejectDimensions = function () {
+					done('The image must be at least 640 x 480px');
+				};
+			}
+		};
+	</script>
+
+	<!-- <form id="uploadForm" enctype="multipart/form-data" class="dropzone">
+        <label for="description">File Description:</label>
+        <input type="text" name="description" placeholder="File Description" id="description" />
+
+        <label for="upload">Upload File:</label>
+        <input type="file" name="upload" id="upload" />
+
+        <input type="submit" value="Upload File" id="submitUpload" />
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/js/s3.js"></script> -->
+
+</body>
