@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "database": "db_threadcount",
+    "database": "db_downstream",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
