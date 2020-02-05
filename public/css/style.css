@@ -107,3 +107,14 @@ body{
     border-radius: .5rem;
     margin-top: 2rem;
 }
+/* account.html details */
+#first, #last, #email {
+    width: 100%;
+    height: 2.2rem;
+    background: whitesmoke;
+    display: block;
+    margin: auto;
+    position: relative;
+    border-radius: .5rem;
+    margin-top: 2rem;
+}
