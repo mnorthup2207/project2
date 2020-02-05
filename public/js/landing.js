@@ -87,3 +87,7 @@ function handleLoginErr(err) {
     console.log(err.responseJSON);
 };
 
+$("#updateUser").on("click", () => {
+    window.location("/account")
+})
+
