@@ -1,0 +1,45 @@
+@import "compass/css3";
+
+body{
+    margin: 0 auto;
+    font-family: 'Raleway', sans-serif;
+    height: 100vh;
+    background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+}
+.box2 {
+    width:25%;
+    height:10%;
+    display:block;
+    border-radius: .5em;
+    background:whitesmoke;
+    position:absolute;
+    right: 20em;
+    top: 5em;
+    transition:all 0.3s linear;
+}
+.box1 {
+    width:25%;
+    height:10%;
+    display:block;
+    border-radius: .5em;
+    background:whitesmoke;
+    position:absolute;
+    left:20em;
+    top:5em;
+    transition:all 0.3s linear;
+}   
+.show {
+    width:25%;
+    height:85%;
+}
+.box1H2, .box2H2{
+    margin-top: .5em;
+} 
+.createForm, .loginForm {
+    display: none;
+    width: 90%;
+    margin-left: 5%;
+} 
+
+
+
