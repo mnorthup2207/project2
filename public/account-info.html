@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Account Info</title>
 </head>
+
 <body>
-    
+    <div class="container text-center">
+        <div class="navBar">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3 id="dStream">DownStream</h3>
+                </div>
+                <div class="col-md-3">
+                    <h4 id="streams">Streams</h4>
+                </div>
+                <div class="col-md-3">
+                    <h4 id="rafts">Rafts</h4>
+                </div>
+                <div class="col-md-2">
+                    <h6 id="logout">Logout</h6>
+                </div>
+            </div>
+        </div>
+        <div class="welcomeBar">
+            <h2 class="welcomeLine">Account Info</h2>
+        </div>
+        <form class="updateForm">
+            <div class="row accountRow">
+                <div class="col-md-3">
+                    <h3 id="first">First Name</h3>
+                    <input type="text" id="updateName1" placeholder="First Name">
+                </div>
+                <div class="col-md-3">
+                    <h3 id="last">Last Name</h3>
+                    <input type="text" id="updateName2" placeholder="Last Name">
+                </div>
+                <div class="col-md-3">
+                    <h3 id="email">Email</h3>
+                    <input type="email" id="updateEmail" placeholder="Email">
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
+
 </html>

@@ -1,0 +1,29 @@
+/* body {
+    position: relative;
+} */
+.loaderRow {
+    margin-top: 5rem;
+}
+
+.scrollspy {
+    overflow-y: scroll;
+    position: relative;
+    height: 20rem;
+}
+.streamId {
+    background: whitesmoke;
+    display: block;
+    border-radius: .5rem;
+    margin-top: .5rem;
+    width: 90%;
+    margin-left: 5%;
+}
+.contentBox {
+    width: 100%;
+    height: 100%;
+    background: whitesmoke;
+    display: block;
+    margin: auto;
+    position: relative;
+    border-radius: .5rem;
+}
