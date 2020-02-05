@@ -57,7 +57,7 @@ body{
 .navBar{
     width: 100%;
     height: 6rem;
-    background:#ccc;
+    background:whitesmoke;
     display:block;
     margin:auto;
     position:relative;
@@ -74,10 +74,16 @@ body{
     margin-left: 1em;
     cursor: pointer;
 }
+#logout {
+    font-weight: 400;
+    margin-top: 2.3em;
+    margin-left: 1em;
+    cursor: pointer;
+}
 .welcomeBar{
     width: 80%;
     height: 2.5rem;
-    background: #ccc;
+    background: whitesmoke;
     display: block;
     margin: auto;
     position: relative;
@@ -94,7 +100,18 @@ body{
 #updateUser, #streamsPage, #raftsPage {
     width: 100%;
     height: 4.2rem;
-    background: #ccc;
+    background: whitesmoke;
+    display: block;
+    margin: auto;
+    position: relative;
+    border-radius: .5rem;
+    margin-top: 2rem;
+}
+/* account.html details */
+#first, #last, #email {
+    width: 100%;
+    height: 2.2rem;
+    background: whitesmoke;
     display: block;
     margin: auto;
     position: relative;
