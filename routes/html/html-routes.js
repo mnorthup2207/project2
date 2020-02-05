@@ -10,16 +10,16 @@ router.get("/", function (req, res) {
     if (req.user) {
         res.redirect("/dashboard");
     }
-    res.sendFile(path.join(__dirname, "../../public/landing.html"));
+    res.render("index")
 });
 
 // "/dashboard" loads the specific user dashboard
 router.get("/dashboard", isAuth, function (req, res) {
-    res.sendFile(path.join(__dirname, "../../public/user-dashboard.html"));
+    res.render("dashboard")
 });
 
 router.get("/test", function (req, res) {
-    res.sendFile(path.join(__dirname, "../../public/test.html"));
+    res.render("test")
 });
 
 //   // "/account" loads the users info to be updated or reviewed

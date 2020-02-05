@@ -28,7 +28,7 @@ $(".login").on("submit", event => {
         return;
     }
 
-    loginIn(userData.email, userData.password);
+    login(userData.email, userData.password);
     $("#logEmail").val("");
     $("#logPass").val("");
 });
@@ -38,23 +38,26 @@ $(".signup").on("submit", event => {
     const userData = {
         firstName: $("#name1").val().trim(),
         lastName: $("#name2").val().trim(),
-        email: $("#logEmail").val().trim(),
-        password: $("#logPass").val().trim()
+        email: $("#createEmail").val().trim(),
+        password: $("#createPass").val().trim()
 
     };
 
+    if ($("#createPass").val() != $("#confirmPass").val()) {
+        return console.log("Passwords dont match!");
+    }
+
     if (!userData.firstName || !userData.lastName || !userData.email || !userData.password) {
-        return;
+        return console.log("missing fields!");
     }
 
     signUp(userData.firstName, userData.lastName, userData.email, userData.password);
     $("#name1").val("");
     $("#name2").val("");
-    $("#logEmail").val("");
-    $("#logPass").val("");
+    $("#createEmail").val("");
+    $("#createPass").val("");
+    $("#confirmPass").val("");
 })
-
-
 
 function login(email, password) {
     $.post("/api/auth/login", {
@@ -68,7 +71,7 @@ function login(email, password) {
 };
 
 function signUp(firstName, lastName, email, password) {
-    $.post("/api/auth/login", {
+    $.post("/api/auth/signup", {
         first_name: firstName,
         last_name: lastName,
         email: email,

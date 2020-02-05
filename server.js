@@ -22,10 +22,18 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+<<<<<<< HEAD
 // Session Set-up
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+=======
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+>>>>>>> ed14e28365c23ef666ff72027e5af69a2e34e5d6
 
 // Routes
 // =============================================================
