@@ -22,6 +22,16 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
+        createdAt: {
+            type: DataTypes.DATE(3),
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+            field: 'created_at',
+        },
+        updatedAt: {
+            type: DataTypes.DATE(3),
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)'),
+            field: 'updated_at',
+        }
 
     });
 
@@ -30,14 +40,24 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: "cascade"
         });
 
-        User.belongsTo(models.AcctType, {
-            as: "account_type",
+        User.hasMany(models.Message, {
+            onDelete: "cascade"
+        });
+
+        User.belongsTo(models.UserType, {
             foreignKey: {
                 allowNull: false,
                 defaultValue: 2
             }
         });
-    }
+
+        User.belongsToMany(models.Stream, {
+            through: "UserStreams",
+            as: "streams",
+            foreignKey: 'userId',
+            otherKey: 'streamId'
+        });
+    };
 
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);

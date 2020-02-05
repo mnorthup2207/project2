@@ -7,6 +7,16 @@ module.exports = (sequelize, DataTypes) => {
         location: {
             type: DataTypes.STRING
             , allowNull: false
+        },
+        createdAt: {
+            type: DataTypes.DATE(3),
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+            field: 'created_at',
+        },
+        updatedAt: {
+            type: DataTypes.DATE(3),
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)'),
+            field: 'updated_at',
         }
     });
 
@@ -14,14 +24,12 @@ module.exports = (sequelize, DataTypes) => {
     Raft.associate = models => {
         Raft.belongsTo(models.User, {
             foreignKey: {
-                name: "user_id",
                 allowNull: false
             },
         });
 
-        Raft.belongsTo(models.DocType, {
+        Raft.belongsTo(models.RaftType, {
             foreignKey: {
-                name: "type_id",
                 allowNull: false,
                 defaultValue: 1
             },
