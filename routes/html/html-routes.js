@@ -7,17 +7,22 @@ const router = require("express").Router();
 
 // index route loads view.html
 router.get("/", function (req, res) {
-  console.log("yay")
-  res.render("index")
+    console.log("yay")
+    res.render("index")
 });
 // "/dashboard" loads the specific user dashboard
 router.get("/dashboard", function (req, res) {
-  res.render("dashboard")
-  // res.sendFile(path.join(__dirname, "../../public/user-dashboard.html"));
+    res.render("dashboard")
+    // res.sendFile(path.join(__dirname, "../../public/user-dashboard.html"));
 });
 router.get("/test", function (req, res) {
-  res.render("test")
-  // res.sendFile(path.join(__dirname, "../../public/test.html"));
+    res.render("test")
+    // res.sendFile(path.join(__dirname, "../../public/test.html"));
+});
+
+//   // "/loader" loads the individual user's streams(messages) dashboard
+router.get("/loader", function (req, res) {
+    res.render("loader");
 });
 
 //   // "/account" loads the users info to be updated or reviewed
@@ -25,15 +30,8 @@ router.get("/test", function (req, res) {
 //     res.sendFile(path.join(__dirname, "../public/account-info.html"));
 //   });
 
-//   // "/stream" loads the individual user's streams(messages) dashboard
-//   app.get("/streams", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/streams.html"));
-//   });
 
-//   // "/rafts" loads the individual user's rafts(documents) dashboard
-//   app.get("/rafts", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/rafts.html"));
-//   });
+
 
 
 //   router.get("/", function(req, res) {

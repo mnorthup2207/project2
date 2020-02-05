@@ -74,6 +74,12 @@ body{
     margin-left: 1em;
     cursor: pointer;
 }
+#logout {
+    font-weight: 400;
+    margin-top: 2.3em;
+    margin-left: 1em;
+    cursor: pointer;
+}
 .welcomeBar{
     width: 80%;
     height: 2.5rem;

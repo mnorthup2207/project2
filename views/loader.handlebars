@@ -1,0 +1,35 @@
+<div class="container text-center">
+    <div class="navBar">
+        <div class="row">
+            <div class="col-md-3">
+                <h3 id="dStream">DownStream</h3>
+            </div>
+            <div class="col-md-3">
+                <h4 id="streams">Streams</h4>
+            </div>
+            <div class="col-md-3">
+                <h4 id="rafts">Rafts</h4>
+            </div>
+            <div class="col-md-2">
+                <h6 id="logout">Logout</h6>
+            </div>
+        </div>
+    </div>
+    <div class="row loaderRow">
+        <div class="col-md-4">
+            <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy">
+                <ul>
+                    {{> streams/streams-block}}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="contentBox">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
