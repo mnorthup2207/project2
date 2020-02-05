@@ -22,11 +22,42 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        account_type: {
-            type: DataTypes.STRING
-            ,defaultValue: 3
+        createdAt: {
+            type: DataTypes.DATE(3),
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+            field: 'created_at',
+        },
+        updatedAt: {
+            type: DataTypes.DATE(3),
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)'),
+            field: 'updated_at',
         }
+
     });
+
+    User.associate = models => {
+        User.hasMany(models.Raft, {
+            onDelete: "cascade"
+        });
+
+        User.hasMany(models.Message, {
+            onDelete: "cascade"
+        });
+
+        User.belongsTo(models.UserType, {
+            foreignKey: {
+                allowNull: false,
+                defaultValue: 2
+            }
+        });
+
+        User.belongsToMany(models.Stream, {
+            through: "UserStreams",
+            as: "streams",
+            foreignKey: 'userId',
+            otherKey: 'streamId'
+        });
+    };
 
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);

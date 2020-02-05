@@ -1,10 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
-    const Stream = sequelize.define("Stream", {
-        stream_id: {
-            type: DataTypes.INTEGER
-        },
-        count: {
-            type: DataTypes.INTEGER
+    const RaftType = sequelize.define("RaftType", {
+        type: {
+            type: DataTypes.STRING
+            , allowNull: false
+            , defaultValues: "general"
         },
         createdAt: {
             type: DataTypes.DATE(3),
@@ -16,20 +15,14 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)'),
             field: 'updated_at',
         }
+
     });
 
-    Stream.associate = models => {
-        Stream.hasMany(models.Message, {
+    RaftType.associate = models => {
+        RaftType.hasMany(models.Raft, {
             onDelete: "cascade"
-        });
-
-        Stream.belongsToMany(models.User, {
-            through: "UserStreams",
-            as: "users",
-            foreignKey: 'streamId',
-            otherKey: 'userId'
         });
     };
 
-    return Stream;
+    return RaftType;
 };
