@@ -1,11 +1,11 @@
 @import "compass/css3";
-
 body{
     margin: 0 auto;
     font-family: 'Raleway', sans-serif;
     height: 100vh;
     background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
 }
+/* landing.html styling */
 .box2 {
     width:25%;
     height:10%;
@@ -34,12 +34,23 @@ body{
 }
 .box1H2, .box2H2{
     margin-top: .5em;
+    cursor: pointer;
 } 
 .createForm, .loginForm {
     display: none;
     width: 90%;
     margin-left: 5%;
 } 
+#loginBtn, #createBtn {
+    border: black solid .1em ; 
+}
+.brandStatement{
+    position:absolute;
+    left: 19.5em;
+    top: 12em;
+    width: 54%;
+}
+/* user-dashboard.html styling */
 
 
 
