@@ -33,10 +33,44 @@ $(".login").on("submit", event => {
     $("#logPass").val("");
 });
 
+$(".signup").on("submit", event => {
+    event.preventDefault();
+    const userData = {
+        firstName: $("#name1").val().trim(),
+        lastName: $("#name2").val().trim(),
+        email: $("#logEmail").val().trim(),
+        password: $("#logPass").val().trim()
+
+    };
+
+    if (!userData.firstName || !userData.lastName || !userData.email || !userData.password) {
+        return;
+    }
+
+    signUp(userData.firstName, userData.lastName, userData.email, userData.password);
+    $("#name1").val("");
+    $("#name2").val("");
+    $("#logEmail").val("");
+    $("#logPass").val("");
+})
+
 
 
 function login(email, password) {
     $.post("/api/auth/login", {
+        email: email,
+        password: password
+    })
+    .then(data => {
+        window.location.replace("/dashboard");
+    })
+    .catch(handleLoginErr);
+};
+
+function signUp(firstName, lastName, email, password) {
+    $.post("/api/auth/login", {
+        first_name: firstName,
+        last_name: lastName,
         email: email,
         password: password
     })
