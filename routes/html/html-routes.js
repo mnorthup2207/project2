@@ -34,10 +34,10 @@ router.get("/loader", isAuth, function (req, res) {
     res.render("loader");
 });
 
-//   // "/account" loads the users info to be updated or reviewed
-//   app.get("/account", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/account-info.html"));
-//   });
+// "/account" loads the users info to be updated or reviewed
+router.get("/account", isAuth, function (req, res) {
+    res.render("account");
+});
 
 
 
