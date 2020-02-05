@@ -1,27 +1,30 @@
 const path = require("path");
 const router = require("express").Router();
 
-
+const isAuth = require("../../config/middleware/isAuthenticated");
 
 // Each of the below routes just handles the HTML page that the user gets sent to.
 
 // index route loads view.html
 router.get("/", function (req, res) {
-    console.log("yay")
+    if (req.user) {
+        res.redirect("/dashboard");
+    }
     res.render("index")
 });
+
 // "/dashboard" loads the specific user dashboard
-router.get("/dashboard", function (req, res) {
+router.get("/dashboard", isAuth, function (req, res) {
     res.render("dashboard")
-    // res.sendFile(path.join(__dirname, "../../public/user-dashboard.html"));
 });
+
 router.get("/test", function (req, res) {
     res.render("test")
     // res.sendFile(path.join(__dirname, "../../public/test.html"));
 });
 
 //   // "/loader" loads the individual user's streams(messages) dashboard
-router.get("/loader", function (req, res) {
+router.get("/loader", isAuth, function (req, res) {
     res.render("loader");
 });
 
