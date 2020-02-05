@@ -8,12 +8,12 @@ const router = require("express").Router();
   // index route loads view.html
   router.get("/", function(req, res) {
       console.log("yay")
-    res.sendFile(path.join(__dirname, "./public/test.html"));
+    res.sendFile(path.join(__dirname, "../../public/landing.html"));
   });
 // "/dashboard" loads the specific user dashboard
-//   app.get("/dashboard", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/user-dashboard.html"));
-//   });
+  router.get("/dashboard", function(req, res) {
+    res.sendFile(path.join(__dirname, "../../public/user-dashboard.html"));
+  });
 
 //   // "/account" loads the users info to be updated or reviewed
 //   app.get("/account", function(req, res) {
