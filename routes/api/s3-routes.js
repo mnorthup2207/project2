@@ -19,7 +19,7 @@ router.post("/upload", function (req, res) {
         return res.status(400).send("No file was uploaded.");
     }
     
-    const uploadFile = req.files.upload;
+    const uploadFile = req.files.file;
     console.log(uploadFile)
     
     const params = {

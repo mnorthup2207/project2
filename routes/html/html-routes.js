@@ -14,6 +14,9 @@ const router = require("express").Router();
   router.get("/dashboard", function(req, res) {
     res.sendFile(path.join(__dirname, "../../public/user-dashboard.html"));
   });
+  router.get("/test", function(req, res) {
+    res.sendFile(path.join(__dirname, "../../public/test.html"));
+  });
 
 //   // "/account" loads the users info to be updated or reviewed
 //   app.get("/account", function(req, res) {
@@ -31,15 +34,9 @@ const router = require("express").Router();
 //   });
 
 
-<<<<<<< HEAD
-router.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "../../public/test.html"));
-})
-=======
 //   router.get("/", function(req, res) {
 //       console.log("yay")
 //     res.sendFile(path.join(__dirname, "../../public/test.html"));
 //   })
->>>>>>> 400eaa9dad3dc83e2c535b74db2ee09e5dc99edd
 
 module.exports = router
