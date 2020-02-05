@@ -43,6 +43,9 @@ body{
 } 
 #loginBtn, #createBtn {
     border: black solid .1em ; 
+    /* border-width: .1em ; 
+        border-style: solid;
+        border-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%); */
 }
 .brandStatement{
     position:absolute;
@@ -51,6 +54,50 @@ body{
     width: 54%;
 }
 /* user-dashboard.html styling */
-
-
-
+.navBar{
+    width: 100%;
+    height: 6rem;
+    background:#ccc;
+    display:block;
+    margin:auto;
+    position:relative;
+    border-radius: .5rem;
+}
+#dStream{
+    margin-top: 1em;
+    margin-left: 1em;
+    cursor: pointer;
+    font-weight: 600;
+}
+#streams, #rafts {
+    margin-top: 1.3em;
+    margin-left: 1em;
+    cursor: pointer;
+}
+.welcomeBar{
+    width: 80%;
+    height: 2.5rem;
+    background: #ccc;
+    display: block;
+    margin: auto;
+    position: relative;
+    border-radius: .5rem;
+    margin-top: 2rem;
+}
+.welcomeLine{
+    font-weight: 600;
+    margin-top: 1em;
+}
+.accountRow {
+    margin-top: 1rem;
+}
+#updateUser, #streamsPage, #raftsPage {
+    width: 100%;
+    height: 4.2rem;
+    background: #ccc;
+    display: block;
+    margin: auto;
+    position: relative;
+    border-radius: .5rem;
+    margin-top: 2rem;
+}
