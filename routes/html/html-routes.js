@@ -8,14 +8,20 @@ const isAuth = require("../../config/middleware/isAuthenticated");
 // index route loads view.html
 router.get("/", function (req, res) {
     if (req.user) {
-        res.redirect("/dashboard");
+        console.log(req.user)
+        res.render("dashboard", {
+            user: req.user
+        })
     }
     res.render("index")
 });
 
 // "/dashboard" loads the specific user dashboard
 router.get("/dashboard", isAuth, function (req, res) {
-    res.render("dashboard")
+    console.log(req.user)
+    res.render("dashboard", {
+        user: req.user
+    })
 });
 
 router.get("/test", function (req, res) {
