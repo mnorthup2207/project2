@@ -16,5 +16,37 @@ box2.on('click', function () {
     $(".brandStatement").toggle(false)
 });
 
+$(".login").on("submit", event => {
+    event.preventDefault();
+    const userData = {
+        email: $("#logEmail").val().trim(),
+        password: $("#logPass").val().trim()
 
+    };
+
+    if (!userData.email || !userData.password) {
+        return;
+    }
+
+    loginIn(userData.email, userData.password);
+    $("#logEmail").val("");
+    $("#logPass").val("");
+});
+
+
+
+function login(email, password) {
+    $.post("/api/auth/login", {
+        email: email,
+        password: password
+    })
+    .then(data => {
+        window.location.replace("/dashboard");
+    })
+    .catch(handleLoginErr);
+};
+
+function handleLoginErr(err) {
+    console.log(err.responseJSON);
+};
 

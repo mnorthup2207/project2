@@ -1,19 +1,21 @@
 const path = require("path");
 const router = require("express").Router();
 
+const isAuth = require("../../config/middleware/isAuthenticated");
 
+// Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // Each of the below routes just handles the HTML page that the user gets sent to.
-
-  // index route loads view.html
-  router.get("/", function(req, res) {
-      console.log("yay")
+// index route loads view.html
+router.get("/", function (req, res) {
+    if (req.user) {
+        res.redirect("/dashboard");
+    }
     res.sendFile(path.join(__dirname, "../../public/landing.html"));
-  });
+});
 // "/dashboard" loads the specific user dashboard
-  router.get("/dashboard", function(req, res) {
+router.get("/dashboard", isAuth, function (req, res) {
     res.sendFile(path.join(__dirname, "../../public/user-dashboard.html"));
-  });
+});
 
 //   // "/account" loads the users info to be updated or reviewed
 //   app.get("/account", function(req, res) {
@@ -36,4 +38,4 @@ const router = require("express").Router();
 //     res.sendFile(path.join(__dirname, "../../public/test.html"));
 //   })
 
-  module.exports = router
+module.exports = router
