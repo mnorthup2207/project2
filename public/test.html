@@ -8,7 +8,7 @@
 		
 		
 		<!-- Creating basic form that is setup to post to `/upload` on our Express server, this must match the same route that we created in Express.js, so long as they match you can name it whatever you want -->
-		<form ref="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+		<form ref="uploadForm" action="/api/upload" method="post" enctype="multipart/form-data">
 			<!-- Creating the input field with the name "sampleFile", the "sampleFile" must match the section in your Express.js route, so long as they match you can call it whatever you want -->
 			<input type="file" name="sampleFile"/>
 			<br><br>
