@@ -87,16 +87,6 @@ function handleLoginErr(err) {
     console.log(err.responseJSON);
 };
 
-const vidArr = ["img/beach.mp4", "img/Cascade.mp4", "img/Nature.mp4", "img/Ocean.mp4", "img/Waterfall.mp4", "img/Winter.mp4"];
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(5));
-}
-
-
-const randVid = vidArr[getRandomInt()]
-console.log(typeof(vidArr[getRandomInt()]));
-$(".vidSource").attr("src", randVid)
 
 // columnNumbers = ["10", "12", "24"]
 // arrayLength = columnNumbers.length
