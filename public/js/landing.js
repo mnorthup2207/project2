@@ -1,5 +1,5 @@
-const box1 = $(".box1H2") 
-const box2 = $(".box2H2") 
+const box1 = $(".box1H2")
+const box2 = $(".box2H2")
 
 box1.on('click', function () {
     $(".box1").toggleClass("show");
@@ -64,10 +64,10 @@ function login(email, password) {
         email: email,
         password: password
     })
-    .then(data => {
-        window.location.replace("/dashboard");
-    })
-    .catch(handleLoginErr);
+        .then(data => {
+            window.location.replace("/dashboard");
+        })
+        .catch(handleLoginErr);
 };
 
 function signUp(firstName, lastName, email, password) {
@@ -77,17 +77,26 @@ function signUp(firstName, lastName, email, password) {
         email: email,
         password: password
     })
-    .then(data => {
-        window.location.replace("/dashboard");
-    })
-    .catch(handleLoginErr);
+        .then(data => {
+            window.location.replace("/dashboard");
+        })
+        .catch(handleLoginErr);
 };
 
 function handleLoginErr(err) {
     console.log(err.responseJSON);
 };
 
-$("#updateUser").on("click", () => {
-    window.location("/account")
-})
+// columnNumbers = ["10", "12", "24"]
+// arrayLength = columnNumbers.length
+// e = $(".rotating-number")
+// i = 0
+
+// while (i < arrayLength) {
+//     setTimeout(() => {
+//         e.text(columnNumbers[i])
+//         i++
+//     }, 500)
+// };
+
 
