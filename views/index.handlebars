@@ -1,4 +1,5 @@
 <div class="container">
+    <video autoplay muted loop id="myVideo"><source class="vidSource" src="img/beach.mp4" type="video/mp4"></video>
     <div class="row text-center">
         <div id="box1" class="box1 col-md-6">
             <h2 class="box1H2">Login</h2>
@@ -6,11 +7,11 @@
                 <form class="login">
                     <h3>Welcome Back</h3>
                     <div class="form-group">
-                        <label for="logEmail">Email:</label>
+
                         <input type="email" class="form-control" id="logEmail" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <label for="logPass">Password:</label>
+
                         <input type="password" class="form-control" id="logPass" placeholder="Password">
                     </div>
                     <button type="submit" id="loginBtn" class="btn btn-default">Enter DownStream</button>
@@ -22,23 +23,23 @@
             <div class="createForm">
                 <form class="signup">
                     <div class="form-group">
-                        <label for="name1">First Name:</label>
+
                         <input type="text" class="form-control" id="name1" placeholder="First Name">
                     </div>
                     <div class="form-group">
-                        <label for="name2">Last Name:</label>
+
                         <input type="text" class="form-control" id="name2" placeholder="Last Name">
                     </div>
                     <div class="form-group">
-                        <label for="createEmail">Email:</label>
+
                         <input type="email" class="form-control" id="createEmail" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <label for="createPass">Password:</label>
+
                         <input type="password" class="form-control" id="createPass" placeholder="Password">
                     </div>
                     <div class="form-group">
-                        <label for="confirmPass">Confirm Password:</label>
+
                         <input type="password" class="form-control" id="confirmPass" placeholder="Confirm Password">
                     </div>
                     <button type="submit" id="createBtn" class="btn btn-default">Create User</button>
@@ -47,7 +48,9 @@
         </div>
     </div>
     <div class="brandStatement text-center">
-        <h1><Strong>DownStream</Strong> The Last Group Document and Messenger App You'll Use</h1>
+        <h1><Strong class="logo">downStream</Strong></h1>
+         <h2 class="smallLogo">Better Documents.</h2>
+         <h2 class="smallLogo2">Better Messaging.</h2>
     </div>
 </div>
 <script src="js/landing.js"></script>

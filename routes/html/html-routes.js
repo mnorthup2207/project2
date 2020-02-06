@@ -32,7 +32,7 @@ router.get("/test", function (req, res) {
 
 router.get('/loader/rafts', function(req, res) {
     res.render("loader", {
-        rafts: true
+        rafts: true,
         }
     );
 });
