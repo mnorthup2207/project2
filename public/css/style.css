@@ -14,6 +14,13 @@ a:hover{
     text-decoration: none;
 }
 /* landing.html styling */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
 .box2 {
     width:25%;
     height:10%;
@@ -22,7 +29,7 @@ a:hover{
     background:whitesmoke;
     position:absolute;
     right: 20em;
-    top: 5em;
+    top: 11em;
     transition:all 0.3s linear;
 }
 .box1 {
@@ -33,12 +40,15 @@ a:hover{
     background:whitesmoke;
     position:absolute;
     left:20em;
-    top:5em;
+    top:11em;
     transition:all 0.3s linear;
 }   
+.logo{
+    font-family: 'Comfortaa', cursive;
+}
 .show {
     width:25%;
-    height:85%;
+    height:65%;
 }
 .box1H2, .box2H2{
     margin-top: .5em;
@@ -58,8 +68,18 @@ a:hover{
 .brandStatement{
     position:absolute;
     left: 19.5em;
-    top: 12em;
+    top: 1em;
     width: 54%;
+}
+.smallLogo{
+    font-size: 1em;
+    margin-left: 7em;
+    font-weight: 600;
+}
+.smallLogo2{
+    font-size: 1em;
+    margin-left: 7em;
+    font-weight: 600;
 }
 /* user-dashboard.html styling */
 .navBar{
@@ -75,7 +95,8 @@ a:hover{
     margin-top: 1em;
     margin-left: 1em;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 900;
+    font-family: 'Comfortaa', cursive;
 }
 #streams, #rafts {
     margin-top: 1.3em;
