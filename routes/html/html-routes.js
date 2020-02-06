@@ -19,7 +19,6 @@ router.get("/", function (req, res) {
 
 // "/dashboard" loads the specific user dashboard
 router.get("/dashboard", isAuth, function (req, res) {
-    console.log(req.user)
     res.render("dashboard", {
         user: req.user
     })
