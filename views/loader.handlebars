@@ -14,8 +14,14 @@
     </div>
     <div class="col-md-7">
         <div class="contentBox">
-
+            {{#if streams}}
+            {{> streams/streamsMessage-block}}
+            {{/if}}
+            {{#if rafts}}
+            {{> rafts/dropzone-block}}
+            {{/if}}
         </div>
+        
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>

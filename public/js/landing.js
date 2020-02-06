@@ -6,14 +6,14 @@ box1.on('click', function () {
     $(".box2").attr("class", "box2");
     $(".loginForm").toggle("slow")
     $(".createForm").toggle(false)
-    $(".brandStatement").toggle(false)
+    // $(".brandStatement").toggle(false)
 });
 box2.on('click', function () {
     $(".box2").toggleClass("show");
     $(".box1").attr("class", "box1")
     $(".createForm").toggle("slow")
     $(".loginForm").toggle(false)
-    $(".brandStatement").toggle(false)
+    // $(".brandStatement").toggle(false)
 });
 
 $(".login").on("submit", event => {
@@ -87,6 +87,7 @@ function handleLoginErr(err) {
     console.log(err.responseJSON);
 };
 
+
 // columnNumbers = ["10", "12", "24"]
 // arrayLength = columnNumbers.length
 // e = $(".rotating-number")
@@ -99,4 +100,35 @@ function handleLoginErr(err) {
 //     }, 500)
 // };
 
-
+// dropZone JS
+// Dropzone.options.uploadWidget = {
+//     paramName: 'file',
+//     maxFilesize: 2, // MB
+//     maxFiles: 1,
+//     dictDefaultMessage: 'Drag an image here to upload, or click to select one',
+//     headers: {
+//         'x-csrf-token': document.querySelector('meta[name=csrf-token]').getAttributeNode('content').value,
+//     },
+//     acceptedFiles: 'image/*',
+//     init: function () {
+//         this.on('success', function (file, resp) {
+//             console.log(file);
+//             console.log(resp);
+//         });
+//         this.on('thumbnail', function (file) {
+//             if (file.accepted !== false) {
+//                 if (file.width < 640 || file.height < 480) {
+//                     file.rejectDimensions();
+//                 } else {
+//                     file.acceptDimensions();
+//                 }
+//             }
+//         });
+//     },
+//     accept: function (file, done) {
+//         file.acceptDimensions = done;
+//         file.rejectDimensions = function () {
+//             done('The image must be at least 640 x 480px');
+//         };
+//     }
+// };
