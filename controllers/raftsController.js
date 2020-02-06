@@ -20,15 +20,5 @@ module.exports = {
             })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err))
-    },
-    uploadRaft: function (req, res) {
-        db.Rafts
-            .create({
-                where: {
-                    userId: req.user.id
-                }
-            },
-            req.body)
-                .then(data => res.json(data))
     }
 }
