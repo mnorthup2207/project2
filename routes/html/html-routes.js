@@ -29,15 +29,24 @@ router.get("/test", function (req, res) {
     // res.sendFile(path.join(__dirname, "../../public/test.html"));
 });
 
-//   // "/loader" loads the individual user's streams(messages) dashboard
-router.get("/loader", isAuth, function (req, res) {
-    res.render("loader");
+router.get('/loader/rafts', function(req, res) {
+    res.render("loader", {
+        rafts: true
+        }
+    );
 });
 
-//   // "/account" loads the users info to be updated or reviewed
-//   app.get("/account", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/account-info.html"));
-//   });
+router.get('/loader/streams', function(req, res) {
+    res.render("loader", {
+        streams: true
+        }
+    );
+});
+
+// "/account" loads the users info to be updated or reviewed
+router.get("/account", isAuth, function (req, res) {
+    res.render("account");
+});
 
 
 
