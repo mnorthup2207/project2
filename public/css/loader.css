@@ -27,3 +27,19 @@
     position: relative;
     border-radius: .5rem;
 }
+#toId {
+    width: 34em;
+    margin-top: 1em;
+}
+#messagesId {
+    width: 38em;
+    margin-top: 1em;
+    margin-bottom: 0px;
+    height: 15em;
+    margin-left: 2em;
+}
+.searchLabel{
+    margin-top: 1.5em;
+    margin-left: 1em;
+    font-weight: 600;
+}
