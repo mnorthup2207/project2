@@ -32,8 +32,11 @@ router.post("/upload", function (req, res) {
         if (err) throw err;
     
         console.log(`File uploaded successfully at ${response.Location}`);
-        res.json({ url: response.Location, data: req.body });
+        console.log(req.user);
+        res.json({ location: response.Location, data: req.body, name: req.name, userId: req.user.userId });
     });
+
+    
 })
 
 module.exports = router
