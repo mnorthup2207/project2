@@ -1,9 +1,17 @@
-@import "compass/css3";
+
 body{
     margin: 0 auto;
     font-family: 'Raleway', sans-serif;
+    width: 100vw;
     height: 100vh;
     background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+}
+a {
+    color: black;
+}
+a:hover{
+    color: black;
+    text-decoration: none;
 }
 /* landing.html styling */
 .box2 {
@@ -99,14 +107,16 @@ body{
 }
 #updateUser, #streamsPage, #raftsPage {
     width: 100%;
-    height: 4.2rem;
+    height: 2.2rem;
     background: whitesmoke;
     display: block;
     margin: auto;
     position: relative;
     border-radius: .5rem;
     margin-top: 2rem;
+    color: black;
 }
+
 /* account.html details */
 #first, #last, #email {
     width: 100%;
@@ -117,4 +127,8 @@ body{
     position: relative;
     border-radius: .5rem;
     margin-top: 2rem;
+}
+.updateForm {
+    margin-left: 9rem;
+    width: 100%;
 }
