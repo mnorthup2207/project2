@@ -32,8 +32,16 @@ router.post("/upload", function (req, res) {
         if (err) throw err;
     
         console.log(`File uploaded successfully at ${response.Location}`);
-        res.json({ url: response.Location, data: req.body });
-    });
+        res.json({ location: response.Location, data: req.body, userId: req.user.userId, name: req.name });
+        
+    }).then(() => {
+        $.ajax("/api/raft/rafts", {
+        type: "POST",
+        data: response             
+        }).then(console.log("doc success"))
+    })
+    
 })
 
+router.get
 module.exports = router
