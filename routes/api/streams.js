@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const streamController = require("../../controllers/streamController");
+// const streamController = require("../../controllers/streamController");
+const usController = require("../../controllers/userStreamController");
 
 router.route("/all")
-    .get(streamController.StreamCountByUser)
+    .get(usController.StreamCountByUser)
 
 
 module.exports = router;

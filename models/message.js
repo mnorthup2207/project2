@@ -9,16 +9,6 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
                 len: [1, 250]
             }
-        },
-        createdAt: {
-            type: DataTypes.DATE(3),
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
-            field: 'created_at',
-        },
-        updatedAt: {
-            type: DataTypes.DATE(3),
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)'),
-            field: 'updated_at',
         }
     });
 

@@ -1,10 +1,9 @@
 function getStreams() {
     $.get("/api/streams/all", data => {
-        if (data){
-            console.log(data)
-        } else {
-            console.log("nope")
-        }
+        const count = data.length;
+        $(".streamTotal").append(
+            `<h1>${count}</h1>`
+        )
     })
 };
 
