@@ -4,6 +4,7 @@ const fs = require('fs');
 const AWS = require('aws-sdk');
 const router = require("express").Router();
 const fileUpload = require("express-fileupload");
+const raft = require("../../controllers/raftsController")
 
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY,
@@ -32,11 +33,25 @@ router.post("/upload", function (req, res) {
         if (err) throw err;
     
         console.log(`File uploaded successfully at ${response.Location}`);
-        console.log(req.user);
-        res.json({ location: response.Location, data: req.body, name: req.name, userId: req.user.userId });
-    });
+        console.log(req.user)
+
+        res.json({ 
+            location: response.Location, 
+            data: req.body, 
+            // userId: req.user.userId, 
+            // name: req.name 
+        });
+        
+        raft.uploadRaft({
+            location: response.Location,
+            UserId: req.user.id, 
+            name: uploadFile.name
+        })
+
+    })
 
     
 })
 
+router.get
 module.exports = router

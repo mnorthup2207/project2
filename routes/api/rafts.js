@@ -6,5 +6,5 @@ var passport = require("../../config/passport");
 router.route("/rafts")
     .get(controller.findByUser)
     .get(controller.findByRaft)
-
+    .post(controller.uploadRaft)
 module.exports = router
