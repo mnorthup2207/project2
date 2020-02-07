@@ -9,7 +9,7 @@ function loadUsers() {
 };
 
 function loadStreams() {
-    $.get("/api/stream/all", data => {
+    $.get("/api/user-stream/all", data => {
         console.log(data);
     });
 };
