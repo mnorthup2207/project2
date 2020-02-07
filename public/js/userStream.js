@@ -20,10 +20,12 @@ loadStreams();
 // create button to test functionality
 function generateStream() {
     $.post("/api/stream/create", data => {
+        // console.log(data);
         newStream = data.id
         userId = data.createdBy
         userArray.push(userId);
         // console.log(`id: ${data.id}, createdBy: ${data.createdBy}`);
+        // console.log(userArray);
     })
     .then((newStream) => {
         for (user of userArray) {
@@ -31,13 +33,14 @@ function generateStream() {
                 userId: user,
                 streamId: newStream.id
             })
-            // .then(data => console.log(data));
+            .then(data => console.log(data));
         }
 
     });
 }
 
 
-$(".newStream").on("click", event => {
+$("#createStreamForm").on("submit", event => {
+    event.preventDefault();
     generateStream();
 })
