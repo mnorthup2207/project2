@@ -1,3 +1,4 @@
+
 const box1 = $(".box1H2")
 const box2 = $(".box2H2")
 
@@ -86,6 +87,8 @@ function signUp(firstName, lastName, email, password) {
 function handleLoginErr(err) {
     console.log(err.responseJSON);
 };
+
+// module.exports(backroundVideo)
 
 
 // columnNumbers = ["10", "12", "24"]
