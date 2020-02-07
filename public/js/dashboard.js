@@ -1,5 +1,5 @@
 function getStreams() {
-    $.get("/api/streams/all", data => {
+    $.get("/api/user-stream/all", data => {
         const count = data.length;
         $(".streamTotal").append(
             `<h1 class="counts">${count}</h1>`

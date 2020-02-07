@@ -1,6 +1,5 @@
 const db = require("../../models");
 const fs = require('fs');
-// const express = require("express");
 const AWS = require('aws-sdk');
 const router = require("express").Router();
 const fileUpload = require("express-fileupload");
