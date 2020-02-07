@@ -1,10 +1,7 @@
 const router = require("express").Router();
-const controller = require("../../controllers/mesagController");
-var passport = require("../../config/passport");
+const messageController = require("../../controllers/messageController");
 
-
-router.route("/meassges")
-    .get(controller.findByUser)
-    .get(controller.findByRaft)
+router.route("/by-stream/:id")
+    .get(messageController.findByStream)
 
 module.exports = router

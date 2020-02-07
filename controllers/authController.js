@@ -2,7 +2,6 @@ const db = require("../models");
 
 module.exports = {
     create: (req, res) => {
-        console.log(req.body);
         db.User
             .create({
                 first_name: req.body.first_name,

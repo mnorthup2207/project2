@@ -1,10 +1,11 @@
 const router = require("express").Router();
-const controller = require("../../controllers/raftsController");
-var passport = require("../../config/passport");
+const raftController = require("../../controllers/raftsController");
 
+router.route("/all")
+    .get(raftController.findByUser)
 
 router.route("/rafts")
-    .get(controller.findByUser)
-    .get(controller.findByRaft)
-    .post(controller.uploadRaft)
+    // .get(controller.findByRaft)
+    .post(raftController.uploadRaft)
+    
 module.exports = router

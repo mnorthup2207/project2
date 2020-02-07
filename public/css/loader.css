@@ -2,13 +2,13 @@
     position: relative;
 } */
 .loaderRow {
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 
 .scrollspy {
     overflow-y: scroll;
     position: relative;
-    height: 20rem;
+    height: 28rem;
 }
 .streamId {
     background: whitesmoke;
@@ -17,6 +17,7 @@
     margin-top: .5rem;
     width: 90%;
     margin-left: 5%;
+    font-size: x-large;
 }
 .contentBox {
     width: 100%;
@@ -28,8 +29,14 @@
     border-radius: .5rem;
 }
 #toId {
-    width: 34em;
+    width: 18em;
     margin-top: 1em;
+}
+.searchBtn{
+    margin-top: 1em;
+}
+.messageLine{
+    margin-left: 1em;
 }
 #messagesId {
     width: 38em;
@@ -43,12 +50,30 @@
     margin-left: 1em;
     font-weight: 600;
 }
-.streamTotal{
+.createBtn {
+    margin-left: 6.5em;
+}
+#createStreamForm{
+    margin-top: 1rem;
     width: 100%;
-    height: 8em;
+}
+#streamUser{
+    width: 30rem;
+}
+#downstreamUser{
+    width: 60%;
+    margin-top: 1rem;
+    margin-left: 3.5rem;
     display: block;
-    position: relative;
-    background-color: whitesmoke;
-    margin-top: 1em;
+    background-color: white;
+    border: solid black .2rem;
     border-radius: .5rem;
 }
+.addUserBtn {
+    margin-left: 4rem;
+    width: 4rem;
+    margin-top: 1rem;
+    border: solid black .2rem;
+    border-radius: .5rem;
+}
+
