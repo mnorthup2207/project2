@@ -3,9 +3,20 @@ let userId;
 let userArray = [2];
 
 function loadUsers() {
-    $.get("/api/user-streams/all", data => {
-        // loop goes here for user li's
-        // add id to arr
+    $.get("/api/user/all", data => {
+        // for (const item of data){
+        //     const nameList = data[your data here]
+        //     $(".eachUser").append(
+        //         `<li>
+        //             <div class="row" id="downstreamUser" data-UserId="">
+        //                 <div class="col-md-7">
+        //                     <h4 class="userTag">${names will go here}</h4>
+        //                 </div>
+        //             </div>
+        //             <button class="addUserBtn"><i class="fas fa-user-plus"></i></button>
+        //         </li>`
+        //     )
+        // }
         console.table("users", data);
     });
 };
