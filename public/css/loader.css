@@ -69,9 +69,6 @@
     border: solid black .2rem;
     border-radius: .5rem;
 }
-.userTag{
-    /* width: 50%; */
-}
 .addUserBtn {
     margin-left: 4rem;
     width: 4rem;
