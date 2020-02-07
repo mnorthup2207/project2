@@ -2,13 +2,13 @@
     position: relative;
 } */
 .loaderRow {
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 
 .scrollspy {
     overflow-y: scroll;
     position: relative;
-    height: 20rem;
+    height: 28rem;
 }
 .streamId {
     background: whitesmoke;
@@ -50,6 +50,30 @@
     margin-left: 1em;
     font-weight: 600;
 }
-.liEl{
+.createBtn {
+    margin-left: 6.5em;
+}
+#createStreamForm{
+    margin-top: 1rem;
+    width: 100%;
+}
+#streamUser{
+    width: 30rem;
+}
+#downstreamUser{
+    width: 60%;
+    margin-top: 1rem;
+    margin-left: 3.5rem;
+    display: block;
+    background-color: wheat;
 
 }
+.userTag{
+    /* width: 50%; */
+}
+.addUserBtn {
+    margin-left: 4rem;
+    width: 4rem;
+    margin-top: 1rem;
+}
+

@@ -1,6 +1,11 @@
 {{> navbar/navbar-block}}
 <div class="row loaderRow">
     <div class="col-md-4">
+        {{#if streams}}
+        <div class="row">
+            {{> streams/createStream-block}}
+        </div>
+        {{/if}}
         <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy">
             <ul>
                 {{#if streams}}
@@ -13,20 +18,16 @@
         </div>
     </div>
     <div class="col-md-7">
-        <div class="row">
-        {{#if streams}}
-        {{> streams/streamsSearch-block}}
-        {{/if}}
-        </div>
         <div class="contentBox">
-            {{#if streams}}
-            {{> streams/streamsMessage-block}}
-            {{/if}}
-            {{#if rafts}}
-            {{> rafts/dropzone-block}}
-            {{/if}}
+            <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy">
+                {{#if streams}}
+                {{> streams/streamsMessage-block}}
+                {{/if}}
+                {{#if rafts}}
+                {{> rafts/dropzone-block}}
+                {{/if}}
+            </div>
         </div>
-
     </div>
 </div>
 <script src="../js/dropZone.js"></script>
