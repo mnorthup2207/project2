@@ -4,13 +4,16 @@ let userArray = [2];
 
 function loadUsers() {
     $.get("/api/user/all", data => {
-        console.log(data);
+        // loop goes here for user li's
+        // add id to arr
+        console.log("users", data);
     });
 };
 
 function loadStreams() {
-    $.get("/api/stream/all", data => {
-        console.log(data);
+    $.get("/api/user-stream/all", data => {
+        // loop throuh streams for left pane
+        console.log("streams data", data);
     });
 };
 
