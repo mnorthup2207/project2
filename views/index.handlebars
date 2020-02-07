@@ -1,5 +1,5 @@
 <div class="container">
-    <video autoplay muted loop id="myVideo"><source class="vidSource" src="img/beach.mp4" type="video/mp4"></video>
+    <video autoplay muted loop id="myVideo"><source id="vidSource" src={{video}} type="video/mp4"></video>
     <div class="row text-center">
         <div id="box1" class="box1 col-md-6">
             <h2 class="box1H2">Login</h2>
@@ -53,4 +53,33 @@
          <h2 class="smallLogo2">Better Messaging.</h2>
     </div>
 </div>
+<script>
+
+const videos = ["23338", "9533", "5802", "1996", "7559", "3131", "23838", "11161", "8837", "3523", "990", "21788", "10001", "930", "2466", "10427", "24515", "30613", "24216"]
+
+function backroundVideo() {
+    // console.log(videos)
+    // console.log(Math.random)
+
+    // let id = videos[Math.floor(Math.random * videos.length)]
+
+    // console.log(id)
+    
+    var queryURL = `https://pixabay.com/api/videos/?key=15170324-d8c686db95eec1155d28d50fe&id=1996`;
+    
+    // Creating an AJAX call for the specific movie button being clicked
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response)
+        const backVideo = response.hits[0].videos.large.url
+        console.log(backVideo)
+        $("#vidSource").attr("src", backVideo)
+    })
+}
+backroundVideo()
+
+</script>
 <script src="js/landing.js"></script>
+
