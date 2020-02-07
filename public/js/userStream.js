@@ -38,6 +38,6 @@ function generateStream() {
 }
 
 
-$(".createStream").on("click", event => {
+$(".newStream").on("click", event => {
     generateStream();
 })
