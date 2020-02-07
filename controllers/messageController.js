@@ -5,7 +5,7 @@ module.exports = {
         db.Stream
             .findAll({
                 where: {
-                    userId: req.user.id
+                    StreamId: req.params.streamId
                 }
             })
             .then(dbModel => res.json(dbModel))
