@@ -12,7 +12,7 @@ function getRafts() {
         $(".raftTotal").append(
             `<h1 class="counts" >${count}</h1>`
         )
-        console.log("Raft", data[0].name);
+        console.log("Raft", `Name: ${data[0].name} | Location ${data[0].location}`);
         
     })
 };
