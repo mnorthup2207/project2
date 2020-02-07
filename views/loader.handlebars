@@ -13,6 +13,11 @@
         </div>
     </div>
     <div class="col-md-7">
+        <div class="row">
+        {{#if streams}}
+        {{> streams/streamsSearch-block}}
+        {{/if}}
+        </div>
         <div class="contentBox">
             {{#if streams}}
             {{> streams/streamsMessage-block}}
@@ -21,7 +26,7 @@
             {{> rafts/dropzone-block}}
             {{/if}}
         </div>
-        
+
     </div>
 </div>
 <script src="js/dropZone.js"></script>
