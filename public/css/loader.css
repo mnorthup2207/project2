@@ -17,6 +17,7 @@
     margin-top: .5rem;
     width: 90%;
     margin-left: 5%;
+    font-size: x-large;
 }
 .contentBox {
     width: 100%;
@@ -48,4 +49,7 @@
     margin-top: 1.5em;
     margin-left: 1em;
     font-weight: 600;
+}
+.liEl{
+
 }
