@@ -28,8 +28,14 @@
     border-radius: .5rem;
 }
 #toId {
-    width: 34em;
+    width: 18em;
     margin-top: 1em;
+}
+.searchBtn{
+    margin-top: 1em;
+}
+.messageLine{
+    margin-left: 1em;
 }
 #messagesId {
     width: 38em;
