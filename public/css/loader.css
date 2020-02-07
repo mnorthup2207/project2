@@ -65,8 +65,9 @@
     margin-top: 1rem;
     margin-left: 3.5rem;
     display: block;
-    background-color: wheat;
-
+    background-color: white;
+    border: solid black .2rem;
+    border-radius: .5rem;
 }
 .userTag{
     /* width: 50%; */
@@ -75,5 +76,7 @@
     margin-left: 4rem;
     width: 4rem;
     margin-top: 1rem;
+    border: solid black .2rem;
+    border-radius: .5rem;
 }
 
