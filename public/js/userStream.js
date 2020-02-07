@@ -14,6 +14,7 @@ function loadStreams() {
     $.get("/api/user-stream/all", data => {
         // loop throuh streams for left pane
         console.log("streams data", data);
+        console.log(data);
     });
 };
 
