@@ -49,17 +49,15 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(401).json(err));
     },
-    getUserStreamData: (req, res) => {
+    streamCountCurrentUser: (req, res) => {
         db.UserStreams
-            .findAll(
-            {
+            .findAll({
                 where: {
-                    streamId: {
-                        [Op.in]: dataArray
-                    }
+                    userId:req.user.id
                 }
-            }
-            ).then(dbModel => console.log(dbModel));
+            })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(401).json(err));
     }
 
 };

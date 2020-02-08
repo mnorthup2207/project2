@@ -7,4 +7,7 @@ router.route("/all")
 router.route("/create")
     .post(usController.createUserStream)
 
+router.route("/current")
+    .get(usController.streamCountCurrentUser)
+
 module.exports = router;
