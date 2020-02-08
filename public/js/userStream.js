@@ -1,3 +1,5 @@
+// import { response } from "express";
+
 let newStreamId;
 let userId;
 let userArray = [2];
@@ -5,27 +7,29 @@ let userArray = [2];
 function loadUsers() {
     $.get("/api/user/all", data => {
         // for (const item of data){
-        //     const nameList = data[your data here]
-        //     $(".eachUser").append(
+        //     const first = item.first_name
+        //     const last = item.last_name
+        //     const id = item.id
+        //     $("#eachUser").append(
         //         `<li>
         //             <div class="row" id="downstreamUser" data-UserId="">
         //                 <div class="col-md-7">
-        //                     <h4 class="userTag">${names will go here}</h4>
+        //                     <h4 class="userTag">${first} ${last}</h4>
         //                 </div>
         //             </div>
-        //             <button class="addUserBtn"><i class="fas fa-user-plus"></i></button>
+        //             <button id="str" value="${id}" data-name="${first} ${last}" class="addUserBtn"><i class="fas fa-user-plus"></i></button>
         //         </li>`
         //     )
         // }
-        console.table("users", data);
+        console.table("users", data[0]);
     });
 };
+
 
 function loadStreams() {
     $.get("/api/user-stream/all", data => {
         // loop throuh streams for left pane
-        console.table("streams data", data);
-
+        console.log("streams data", data);
     });
 };
 

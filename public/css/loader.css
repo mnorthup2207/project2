@@ -1,6 +1,9 @@
 /* body {
     position: relative;
 } */
+ul {
+    list-style: none;
+}
 .loaderRow {
     margin-top: 2rem;
 }
