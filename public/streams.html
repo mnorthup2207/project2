@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:600&display=swap" rel="stylesheet">
+    <link rel='icon' href='img/placeholderFav.png' type='image/x-icon'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <title>DownStream</title>
+</head>
+
+<body>
+    <div class="container text-center">
+        <div class="navBar">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3 id="dStream"><a href="/dashboard">downStream</a></h3>
+                </div>
+                <div class="col-md-3">
+                    <h4 id="streams"><a href="/loader/streams">Streams</a></h4>
+                </div>
+                <div class="col-md-3">
+                    <h4 id="rafts"><a href="/loader/rafts">Rafts</a></h4>
+                </div>
+                <div class="col-md-2">
+                    <h6 id="logout"><a href="/api/auth/logout">Logout</a></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row loaderRow">
+            <div class="col-md-4">
+                <div class="row">
+                    <button class="createBtn">
+                        <h3>Create Stream</h3>
+                    </button>
+                </div>
+                <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy">
+                    <ul>
+                        <li class="streamId">
+                            <h4>Stream 1</h4>
+                            <p>message details. .... blah. blah. blah. blah</p>
+                        </li>
+                        <li class="streamId">
+                            <h4>Stream 2</h4>
+                            <p>message details. .... blah. blah. blah. blah</p>
+                        </li>
+                        <li class="streamId">
+                            <h4>Stream 3</h4>
+                            <p>message details. .... blah. blah. blah. blah</p>
+                        </li>
+                        <li class="streamId">
+                            <h4>Stream 4</h4>
+                            <p>message details. .... blah. blah. blah. blah</p>
+                        </li>
+                        <li class="streamId">
+                            <h4>stream 5</h4>
+                            <p>message details. .... blah. blah. blah. blah</p>
+                        </li>
+                        <li class="streamId">
+                            <h4>stream 6</h4>
+                            <p>message details. .... blah. blah. blah. blah</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="contentBox">
+                    <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy">
+                        <div id="createStream" class="row">
+                            <form id="createStreamForm">
+                                <span><input id="streamUser" type="text" placeholder="Stream Users"></span>
+                                <button class="submit" class="newStream">Create</button>
+                            </form>
+                            <div id="dynamicLIs">
+                                <ul id="eachUser">
+                                    <li>
+                                        <!-- {{stream}} -->
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/rafts.js"></script>
+    <script src="js/userStream.js"></script>
+    <script src="js/streams.js"></script>
+
+</body>
+
+</html>

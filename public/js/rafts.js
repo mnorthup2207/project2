@@ -1,9 +1,8 @@
+const streamUserList = []
+
 function getRafts() {
     $.get("/api/raft/all", data => {
         if (data) {
-
-            const count = data.length;
-    
             for (const item of data) {
                 const name = item.name
                 const location = item.location
@@ -11,8 +10,6 @@ function getRafts() {
                     `<li><h3 class="streamId" ><a target="_blank" href="${location}">${name}</a></h3></li>`
                 )
             }
-            
-            // console.log("Raft", name);
         } else {
             console.log("no rafts")
         }
@@ -21,3 +18,5 @@ function getRafts() {
 };
 
 getRafts();
+
+// console.log("Raft", name);

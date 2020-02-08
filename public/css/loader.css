@@ -1,6 +1,9 @@
 /* body {
     position: relative;
 } */
+ul {
+    list-style: none;
+}
 .loaderRow {
     margin-top: 2rem;
 }
@@ -70,10 +73,11 @@
     border-radius: .5rem;
 }
 .addUserBtn {
-    margin-left: 4rem;
+    margin-left: 25rem;
     width: 4rem;
-    margin-top: 1rem;
+    margin-top: -3.5rem;
     border: solid black .2rem;
     border-radius: .5rem;
+    float: right;
 }
 
