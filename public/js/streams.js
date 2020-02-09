@@ -1,11 +1,11 @@
-$(".addUserBtn").on("click", function() {
-    e.preventDefault();
-    // $("#streamUser").append(`${$(this).val()}`)
-    console.log("clicked");
+// $(".addUserBtn").on("click", function() {
+//     e.preventDefault();
+//     // $("#streamUser").append(`${$(this).val()}`)
+//     console.log("clicked");
     
-    // streamUserList.push({
-    //     name: $(this).data-name,
-    //     id: $(this).value
-    // })
-    // console.log(streamUserList);
-})
+//     // streamUserList.push({
+//     //     name: $(this).data-name,
+//     //     id: $(this).value
+//     // })
+//     // console.log(streamUserList);
+// })
