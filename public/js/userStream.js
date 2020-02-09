@@ -1,12 +1,14 @@
 // import { response } from "express";
 
+// import { response } from "express";
+
 let newStreamId;
 let userId;
 let userArray = [2];
 
 function loadUsers() {
     $.get("/api/user/all", data => {
-        for (const item of data){
+        for (const item of data) {
             const first = item.first_name
             const last = item.last_name
             const id = item.id
@@ -21,7 +23,7 @@ function loadUsers() {
                 </li>`
             )
         }
-        $(".addUserBtn").on("click", function(e) {
+        $(".addUserBtn").on("click", function (e) {
             e.preventDefault();
             console.log("clicked");
             // builds streamUserList to append to the above input
@@ -32,7 +34,11 @@ function loadUsers() {
             // console.log(streamUserList);
             for (const item of streamUserList) {
                 const name = item.name;
-                $("#streamUser").html(name);
+                $("#streamUser").append(
+                    `<div class="row">
+                    <p>${name}</p>
+                    </div>`
+                );
                 console.log(`append User ${name}`);
             }
         })
@@ -42,18 +48,19 @@ function loadUsers() {
 
 function loadStreams() {
     $.get("/api/user-stream/all", data => {
-        // loop throuh streams for left pane
         // console.log("raw", data);
 
-        for (let i = 0; i < data.length; i++ ) {
+        for (let i = 0; i < data.length; i++) {
             const userArr = [];
-            for (let x = 0; x < data[i].users.length ; x++ ) {
+            const streamId = [];
+            streamId.push(data[i].id);
+            for (let x = 0; x < data[i].users.length; x++) {
                 const firstName = data[i].users[x].first_name;
                 const lastName = data[i].users[x].last_name;
-                userArr.push(`${firstName} ${lastName}`)             
-            } 
+                userArr.push(`${firstName} ${lastName}`)
+            }
 
-            const finalLoop =[]
+            const finalLoop = []
             for (const user of userArr) {
                 finalLoop.push(`${user}`)
             }
@@ -61,13 +68,33 @@ function loadStreams() {
             const looped = finalLoop.toString().split(",").join(", ");
             $("#indStreams").append(
                 `<li class="streamId">
-                <h4 data-toggle="modal" data-target="#exampleModalScrollable" >${looped}</h4>
+                <h4 id="streamsH4" value="${streamId}" data-toggle="modal" data-target="#exampleModalScrollable" >${looped}</h4>
                 </li>`
             )
             $(".modal-title").text(`Stream With: ${looped}`)
         }
     });
 };
+
+$("#indStreams").on("click", ".streamId #streamsH4", function () {
+    console.log(`clicked`);
+    console.log($(this)[0].attributes[1].value);
+    const value = $(this)[0].attributes[1].value
+    $("#streamBtn").attr("value", `${value}`)
+// put this ajax in a function and call it before a new message and after
+    $.ajax({
+        url: "/api/message/all",
+        type: "get",
+        data: { id: parseInt(value) },
+        success: responseData => {
+            console.log(responseData);
+        },
+        error: xhr => {
+            console.log(xhr);
+        }
+    })  
+})
+
 
 loadUsers();
 loadStreams();
@@ -82,17 +109,34 @@ function generateStream() {
         // console.log(`id: ${data.id}, createdBy: ${data.createdBy}`);
         // console.log(userArray);
     })
-    .then((newStream) => {
-        for (user of userArray) {
-            $.post("/api/user-stream/create", {
-                userId: user,
-                streamId: newStream.id
-            })
-            .then(data => console.log(data));
-        }
+        .then((newStream) => {
+            for (user of userArray) {
+                $.post("/api/user-stream/create", {
+                    userId: user,
+                    streamId: newStream.id
+                })
+                    .then(data => console.log(data));
+            }
 
-    });
+        });
 }
+
+const emptyTextBox = () => {
+    $("#messageDetails").val(" ")
+}
+
+$("#streamBtn").on("click", function() {
+    console.log(`clicked`);
+    const uniqueStream = $(this)[0].value
+    const messageText = $("#messageDetails")[0].value
+    console.log(`Stream Id: ${uniqueStream} | Stream Message: ${messageText}`);
+
+    $.post("/api/message/create", {
+        id: uniqueStream,
+        message: messageText
+    })
+    emptyTextBox();
+})
 
 
 $("#createStreamForm").on("submit", event => {

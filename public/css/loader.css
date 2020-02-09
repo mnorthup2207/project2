@@ -21,6 +21,7 @@ ul {
     width: 90%;
     margin-left: 5%;
     font-size: x-large;
+    cursor: pointer;
 }
 .contentBox {
     width: 100%;
