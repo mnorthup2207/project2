@@ -28,14 +28,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-
 // Routes
 // =============================================================
 app.use(routes)
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-const server = db.sequelize.sync().then(function () {
+const server = db.sequelize.sync({ logging: console.log }).then(function () {
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
     });

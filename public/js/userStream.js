@@ -1,5 +1,7 @@
 // import { response } from "express";
 
+// import { response } from "express";
+
 let newStreamId;
 let userId;
 let userArray = [2];
@@ -82,13 +84,15 @@ $("#indStreams").on("click", ".streamId #streamsH4", function () {
 
     $.ajax({
         url: "/api/message/all",
-        data: {
-            id: value
+        type: "get",
+        data: { id: parseInt(value) },
+        success: responseData => {
+            console.log(responseData);
+        },
+        error: xhr => {
+            console.log(xhr);
         }
-    }).then(data => {
-        console.log("api call all", data);
-        
-    })
+    });
 
 })
 
@@ -117,12 +121,6 @@ function generateStream() {
 
         });
 }
-
-// post /api/message/create
-// id :stream id
-// Message: text that comes through
-
-
 
 $("#createStreamForm").on("submit", event => {
     event.preventDefault();
