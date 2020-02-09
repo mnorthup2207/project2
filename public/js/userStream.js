@@ -72,19 +72,19 @@ function loadStreams() {
             )
             $(".modal-title").text(`Stream With: ${looped}`)
         }
-        $(".streamId").on("click", function () {
-            console.log(`clicked`);
-            console.log($(this)[0]);
-            // console.log($(this));
-        })
+        // $(".streamId").on("click", function () {
+        //     console.log(`clicked`);
+        //     console.log($(this)[0]);
+        //     // console.log($(this));
+        // })
     });
 };
 
-// $("#streamsH4").on("click", function () {
-//     console.log(`clicked`);
-//     // console.log($(this)[0].attributes[1]);
-//     console.log($(this));
-// })
+$("#indStreams").on("click", ".streamId #streamsH4", function () {
+    console.log(`clicked`);
+    // console.log($(this)[0].attributes[1]);
+    console.log($(this)[0].attributes[1]);
+})
 
 
 

@@ -27,11 +27,7 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Set Handlebars.
-var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
@@ -39,8 +35,33 @@ app.use(routes)
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ logging: console.log }).then(function () {
+const server = db.sequelize.sync().then(function () {
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
     });
+});
+
+const io = require("socket.io")(server);
+
+io.on('connection', (socket) => {
+    console.log('New user connected')
+
+    //default username
+    socket.username = "Anonymous"
+
+    //listen on change_username
+    socket.on('change_username', (data) => {
+        socket.username = data.username
+    })
+
+    //listen on new_message
+    socket.on('new_message', (data) => {
+        //broadcast the new message
+        io.sockets.emit('new_message', { message: data.message, username: socket.username });
+    })
+
+    //listen on typing
+    socket.on('typing', (data) => {
+        socket.broadcast.emit('typing', { username: socket.username })
+    })
 });
