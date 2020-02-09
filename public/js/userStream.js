@@ -76,16 +76,11 @@ function loadStreams() {
     });
 };
 
-$("#indStreams").on("click", ".streamId #streamsH4", function () {
-    console.log(`clicked`);
-    console.log($(this)[0].attributes[1].value);
-    const value = $(this)[0].attributes[1].value
-    $("#streamBtn").attr("value", `${value}`)
-// put this ajax in a function and call it before a new message and after
+function getMessages(id) {
     $.ajax({
         url: "/api/message/all",
         type: "get",
-        data: { id: parseInt(value) },
+        data: { id: parseInt(id) },
         success: responseData => {
             console.log(responseData);
         },
@@ -93,6 +88,16 @@ $("#indStreams").on("click", ".streamId #streamsH4", function () {
             console.log(xhr);
         }
     })  
+}
+
+$("#indStreams").on("click", ".streamId #streamsH4", function () {
+    console.log(`clicked`);
+    console.log($(this)[0].attributes[1].value);
+    const value = $(this)[0].attributes[1].value
+    $("#streamBtn").attr("value", `${value}`)
+// put this ajax in a function and call it before a new message and after
+
+    getMessages(value);
 })
 
 
@@ -135,7 +140,11 @@ $("#streamBtn").on("click", function() {
         id: uniqueStream,
         message: messageText
     })
+    .then(() => {
+        getMessages(uniqueStream);
+    })
     emptyTextBox();
+
 })
 
 
