@@ -61,7 +61,17 @@ ul {
     width: 100%;
 }
 #streamUser{
-    width: 30rem;
+    width: 160%;
+    display: block;
+    background-color: white;
+    border: solid black 0.1rem;
+    height: 2rem;
+    margin-left: 2rem;
+}
+#newStream {
+    position: absolute;
+    bottom: 0%;
+    left: 246%;
 }
 #downstreamUser{
     width: 60%;

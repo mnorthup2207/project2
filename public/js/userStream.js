@@ -29,14 +29,14 @@ function loadUsers() {
                 id: $(this)[0].value,
                 name: $(this)[0].name
             })
-            console.log(streamUserList);
+            // console.log(streamUserList);
             for (const item of streamUserList) {
                 const name = item.name;
                 $("#streamUser").html(name);
                 console.log(`append User ${name}`);
             }
         })
-        console.table("users", data);
+        // console.table("users", data);
     });
 };
 
@@ -51,24 +51,21 @@ function loadStreams() {
                 const firstName = data[i].users[x].first_name;
                 const lastName = data[i].users[x].last_name;
                 userArr.push(`${firstName} ${lastName}`)             
-            }     
+            } 
+
             const finalLoop =[]
             for (const user of userArr) {
                 finalLoop.push(`${user}`)
             }
 
-            const looped = finalLoop.toString().split(",").join(", ")
-            console.log("final loop list", finalLoop);
-            console.log(looped);
+            const looped = finalLoop.toString().split(",").join(", ");
             $("#indStreams").append(
                 `<li class="streamId">
-                <h4>${looped}</h4>
+                <h4 data-toggle="modal" data-target="#exampleModalScrollable" >${looped}</h4>
                 </li>`
             )
-            
-            console.log("userArr", userArr);
+            $(".modal-title").text(`Stream With: ${looped}`)
         }
-
     });
 };
 
