@@ -1,7 +1,7 @@
 const db = require("../models");
 const Sequelize = require('sequelize');
 var Op = Sequelize.Op;
-let user
+let user;
 
 const getUserStreamData = async (array) => {
     user = await db.Stream
