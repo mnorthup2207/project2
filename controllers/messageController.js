@@ -7,7 +7,7 @@ module.exports = {
         db.Message
             .findAll({
                 where: {
-                    StreamId: req.body.id
+                    StreamId: req.query.id
                 }
             })
             .then(dbModel => res.json(dbModel))

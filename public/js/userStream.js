@@ -1,5 +1,7 @@
 // import { response } from "express";
 
+// import { response } from "express";
+
 let newStreamId;
 let userId;
 let userArray = [2];
@@ -79,15 +81,18 @@ $("#indStreams").on("click", ".streamId #streamsH4", function () {
     console.log($(this)[0].attributes[1].value);
     const value = $(this)[0].attributes[1].value
     $("#streamBtn").attr("value", `${value}`)
-
+// put this ajax in a function and call it before a new message and after
     $.ajax({
         url: "/api/message/all",
-        data: {
-            id: value
+        type: "get",
+        data: { id: parseInt(value) },
+        success: responseData => {
+            console.log(responseData);
+        },
+        error: xhr => {
+            console.log(xhr);
         }
-    }).then(data => {
-        console.log("api call all", data);  
-    })
+    })  
 })
 
 
