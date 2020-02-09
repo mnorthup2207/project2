@@ -1,26 +1,41 @@
 const db = require("../models");
 
+let count;
+
 module.exports = {
     findByStream: function(req, res) {
         db.Message
             .findAll({
                 where: {
-                    StreamId: req.params.streamId
+                    StreamId: req.body.id
                 }
             })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err))
     },
-    createMessage: (req, res) => {
+    createMessage: function (req, res) {
+        // let id = req.body.streamId
+        // getStreamMessageData(id, res);
+        // console.log(data);
         db.Stream
             .findOne({
                 where: {
-                    id: req.params.streamId
+                    id: req.body.id
                 }
-            }).then(dbModel => dbModel)
-        // db.Message
-        //     .create({
-                
-        //     })
+            })
+            .then(data => {
+                count = data.dataValues.count
+                count++;
+                console.log(count);
+                db.Message
+                    .create({
+                        sequence: count,
+                        message: req.body.message,
+                        UserId: req.user.id,
+                        StreamId: req.body.id
+                    })
+                    .then(dbModel => res.json(dbModel))
+                    .catch(err => res.status(401).json(err));
+            })
     }
 }
