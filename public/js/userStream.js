@@ -52,7 +52,6 @@ function loadStreams() {
             const userArr = [];
             const streamId = [];
             streamId.push(data[i].id);
-            // $("#streamBtn").attr("value", `${streamId}`)
             for (let x = 0; x < data[i].users.length; x++) {
                 const firstName = data[i].users[x].first_name;
                 const lastName = data[i].users[x].last_name;
@@ -72,20 +71,26 @@ function loadStreams() {
             )
             $(".modal-title").text(`Stream With: ${looped}`)
         }
-        $(".streamId").on("click", function () {
-            console.log(`clicked`);
-            console.log($(this)[0]);
-            // console.log($(this));
-        })
     });
 };
 
-// $("#streamsH4").on("click", function () {
-//     console.log(`clicked`);
-//     // console.log($(this)[0].attributes[1]);
-//     console.log($(this));
-// })
+$("#indStreams").on("click", ".streamId #streamsH4", function () {
+    console.log(`clicked`);
+    console.log($(this)[0].attributes[1].value);
+    const value = $(this)[0].attributes[1].value
+    $("#streamBtn").attr("value", `${value}`)
 
+    $.ajax({
+        url: "/api/message/all",
+        data: {
+            id: value
+        }
+    }).then(data => {
+        console.log("api call all", data);
+        
+    })
+
+})
 
 
 loadUsers();
@@ -117,9 +122,7 @@ function generateStream() {
 // id :stream id
 // Message: text that comes through
 
-// get /api/message.all
-// object to be passed through
-// value: id stream 
+
 
 $("#createStreamForm").on("submit", event => {
     event.preventDefault();
