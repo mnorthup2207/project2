@@ -35,13 +35,10 @@ function loadUsers() {
                 $("#streamUser").html(name);
                 console.log(`append User ${name}`);
             }
-
-
         })
         console.table("users", data);
     });
 };
-
 
 function loadStreams() {
     $.get("/api/user-stream/all", data => {
