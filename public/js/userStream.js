@@ -6,7 +6,7 @@ let userArray = [2];
 
 function loadUsers() {
     $.get("/api/user/all", data => {
-        for (const item of data){
+        for (const item of data) {
             const first = item.first_name
             const last = item.last_name
             const id = item.id
@@ -21,7 +21,7 @@ function loadUsers() {
                 </li>`
             )
         }
-        $(".addUserBtn").on("click", function(e) {
+        $(".addUserBtn").on("click", function (e) {
             e.preventDefault();
             console.log("clicked");
             // builds streamUserList to append to the above input
@@ -32,7 +32,11 @@ function loadUsers() {
             // console.log(streamUserList);
             for (const item of streamUserList) {
                 const name = item.name;
-                $("#streamUser").html(name);
+                $("#streamUser").append(
+                    `<div class="row">
+                    <p>${name}</p>
+                    </div>`
+                );
                 console.log(`append User ${name}`);
             }
         })
@@ -42,18 +46,20 @@ function loadUsers() {
 
 function loadStreams() {
     $.get("/api/user-stream/all", data => {
-        // loop throuh streams for left pane
         // console.log("raw", data);
 
-        for (let i = 0; i < data.length; i++ ) {
+        for (let i = 0; i < data.length; i++) {
             const userArr = [];
-            for (let x = 0; x < data[i].users.length ; x++ ) {
+            const streamId = [];
+            streamId.push(data[i].id);
+            // $("#streamBtn").attr("value", `${streamId}`)
+            for (let x = 0; x < data[i].users.length; x++) {
                 const firstName = data[i].users[x].first_name;
                 const lastName = data[i].users[x].last_name;
-                userArr.push(`${firstName} ${lastName}`)             
-            } 
+                userArr.push(`${firstName} ${lastName}`)
+            }
 
-            const finalLoop =[]
+            const finalLoop = []
             for (const user of userArr) {
                 finalLoop.push(`${user}`)
             }
@@ -61,13 +67,26 @@ function loadStreams() {
             const looped = finalLoop.toString().split(",").join(", ");
             $("#indStreams").append(
                 `<li class="streamId">
-                <h4 data-toggle="modal" data-target="#exampleModalScrollable" >${looped}</h4>
+                <h4 id="streamsH4" value="${streamId}" data-toggle="modal" data-target="#exampleModalScrollable" >${looped}</h4>
                 </li>`
             )
             $(".modal-title").text(`Stream With: ${looped}`)
         }
+        $(".streamId").on("click", function () {
+            console.log(`clicked`);
+            console.log($(this)[0]);
+            // console.log($(this));
+        })
     });
 };
+
+// $("#streamsH4").on("click", function () {
+//     console.log(`clicked`);
+//     // console.log($(this)[0].attributes[1]);
+//     console.log($(this));
+// })
+
+
 
 loadUsers();
 loadStreams();
@@ -82,25 +101,25 @@ function generateStream() {
         // console.log(`id: ${data.id}, createdBy: ${data.createdBy}`);
         // console.log(userArray);
     })
-    .then((newStream) => {
-        for (user of userArray) {
-            $.post("/api/user-stream/create", {
-                userId: user,
-                streamId: newStream.id
-            })
-            .then(data => console.log(data));
-        }
+        .then((newStream) => {
+            for (user of userArray) {
+                $.post("/api/user-stream/create", {
+                    userId: user,
+                    streamId: newStream.id
+                })
+                    .then(data => console.log(data));
+            }
 
-    });
+        });
 }
 
-post /api/message/create
-id :stream id
-Message: text that comes through
+// post /api/message/create
+// id :stream id
+// Message: text that comes through
 
-get /api/message.all
-object to be passed through
-value: id stream 
+// get /api/message.all
+// object to be passed through
+// value: id stream 
 
 $("#createStreamForm").on("submit", event => {
     event.preventDefault();
