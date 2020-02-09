@@ -1,5 +1,5 @@
 function getStreams() {
-    $.get("/api/user-stream/all", data => {
+    $.get("/api/user-stream/current", data => {
         const count = data.length;
         $(".streamTotal").append(
             `<h1 class="counts">${count}</h1>`
@@ -17,5 +17,12 @@ function getRafts() {
     })
 };
 
+function getCurrentUser() {
+    $.get("/api/user/current", data => {
+        $(".welcomeLine").text(`Welcome back ${data.first_name}`);
+    })
+}
+
 getRafts();
+getCurrentUser();
 getStreams();
