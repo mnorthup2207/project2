@@ -86,10 +86,8 @@ $("#indStreams").on("click", ".streamId #streamsH4", function () {
             id: value
         }
     }).then(data => {
-        console.log("api call all", data);
-        
+        console.log("api call all", data);  
     })
-
 })
 
 
@@ -118,10 +116,22 @@ function generateStream() {
         });
 }
 
-// post /api/message/create
-// id :stream id
-// Message: text that comes through
+const emptyTextBox = () => {
+    $("#messageDetails").val(" ")
+}
 
+$("#streamBtn").on("click", function() {
+    console.log(`clicked`);
+    const uniqueStream = $(this)[0].value
+    const messageText = $("#messageDetails")[0].value
+    console.log(`Stream Id: ${uniqueStream} | Stream Message: ${messageText}`);
+
+    $.post("/api/message/create", {
+        id: uniqueStream,
+        message: messageText
+    })
+    emptyTextBox();
+})
 
 
 $("#createStreamForm").on("submit", event => {

@@ -7,7 +7,7 @@ function getRafts() {
                 const name = item.name
                 const location = item.location
                 $(".liElements").append(
-                    `<li><h3 class="streamId" ><a target="_blank" href="${location}">${name}</a></h3></li>`
+                    `<li><h3 class="streamId" ><a href="${location}">${name}</a></h3></li>`
                 )
             }
         } else {
