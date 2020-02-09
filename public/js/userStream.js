@@ -23,7 +23,6 @@ function loadUsers() {
         }
         $(".addUserBtn").on("click", function(e) {
             e.preventDefault();
-            // $("#streamUser").append(`${$(this).val()}`)
             console.log("clicked");
             // builds streamUserList to append to the above input
             streamUserList.push({
@@ -47,21 +46,14 @@ function loadUsers() {
 function loadStreams() {
     $.get("/api/user-stream/all", data => {
         // loop throuh streams for left pane
-        console.log("raw", data);
-        console.log("data.length", data.length);
-
-        // const userArr = data.filter(name => data[i].users[x].first_name && data[i].users[x].last_name)
+        // console.log("raw", data);
 
         for (let i = 0; i < data.length; i++ ) {
-            // console.log(`Name: ${data[i].users[i].first_name} ${data[i].users[i].last_name} IndexNum: ${i}`);
-            // console.log(`indexNum: ${i}`, data[i].users, `users.length`, data[i].users.length);
             const userArr = [];
             for (let x = 0; x < data[i].users.length ; x++ ) {
                 const firstName = data[i].users[x].first_name;
                 const lastName = data[i].users[x].last_name;
-
-                userArr.push(`${firstName} ${lastName}`)
-                // console.log(`Data Index: ${i} User Index ${x} Name: ${firstName} ${lastName}`);                
+                userArr.push(`${firstName} ${lastName}`)             
             }     
             const finalLoop =[]
             for (const user of userArr) {
