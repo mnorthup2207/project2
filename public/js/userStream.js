@@ -94,6 +94,13 @@ function generateStream() {
     });
 }
 
+post /api/message/create
+id :stream id
+Message: text that comes through
+
+get /api/message.all
+object to be passed through
+value: id stream 
 
 $("#createStreamForm").on("submit", event => {
     event.preventDefault();
