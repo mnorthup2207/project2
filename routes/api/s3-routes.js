@@ -52,5 +52,4 @@ router.post("/upload", function (req, res) {
     
 })
 
-router.get
 module.exports = router
