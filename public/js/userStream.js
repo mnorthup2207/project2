@@ -1,10 +1,10 @@
 // import { response } from "express";
 
 // import { response } from "express";
-
+let userList = "";
 let newStreamId;
 let userId;
-let userArray = [2];
+let userArray = [];
 
 function loadUsers() {
     $.get("/api/user/all", data => {
@@ -27,20 +27,18 @@ function loadUsers() {
             e.preventDefault();
             console.log("clicked");
             // builds streamUserList to append to the above input
-            streamUserList.push({
-                id: $(this)[0].value,
-                name: $(this)[0].name
-            })
-            // console.log(streamUserList);
-            for (const item of streamUserList) {
-                const name = item.name;
-                $("#streamUser").append(
-                    `<div class="row">
-                    <p>${name}</p>
+            userArray.push($(this)[0].value);
+
+            const name = $(this)[0].name
+            console.log(name);
+
+            userList += `${name} `;
+
+            $("#streamUser").html(
+                `<div class="row">
+                    <p class="userList" >${userList}</p>
                     </div>`
-                );
-                console.log(`append User ${name}`);
-            }
+            );
         })
         // console.table("users", data);
     });
@@ -84,18 +82,18 @@ function getMessages(id) {
         data: { id: parseInt(id) },
         success: responseData => {
             console.log(responseData);
-            for (const message of responseData){
+            for (const message of responseData) {
                 const liData = message.message
-            $("#messageLis").append(
-                `<li>${liData}</li>`
-            ) 
+                $("#messageLis").append(
+                    `<li>${liData}</li>`
+                )
             }
         },
         error: xhr => {
             console.log(xhr);
         }
-    }) 
-    
+    })
+
 }
 
 $("#indStreams").on("click", ".streamId #streamsH4", function () {
@@ -103,7 +101,7 @@ $("#indStreams").on("click", ".streamId #streamsH4", function () {
     console.log($(this)[0].attributes[1].value);
     const value = $(this)[0].attributes[1].value
     $("#streamBtn").attr("value", `${value}`)
-// put this ajax in a function and call it before a new message and after
+    // put this ajax in a function and call it before a new message and after
 
     getMessages(value);
 })
@@ -138,7 +136,7 @@ const emptyTextBox = () => {
     $("#messageDetails").val(" ")
 }
 
-$("#streamBtn").on("click", function() {
+$("#streamBtn").on("click", function () {
     console.log(`clicked`);
     const uniqueStream = $(this)[0].value
     const messageText = $("#messageDetails")[0].value
@@ -148,9 +146,9 @@ $("#streamBtn").on("click", function() {
         id: uniqueStream,
         message: messageText
     })
-    .then(() => {
-        getMessages(uniqueStream);
-    })
+        .then(() => {
+            getMessages(uniqueStream);
+        })
     emptyTextBox();
 
 })
