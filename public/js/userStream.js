@@ -77,17 +77,25 @@ function loadStreams() {
 };
 
 function getMessages(id) {
+    $("#messageLis").empty()
     $.ajax({
         url: "/api/message/all",
         type: "get",
         data: { id: parseInt(id) },
         success: responseData => {
             console.log(responseData);
+            for (const message of responseData){
+                const liData = message.message
+            $("#messageLis").append(
+                `<li>${liData}</li>`
+            ) 
+            }
         },
         error: xhr => {
             console.log(xhr);
         }
-    })  
+    }) 
+    
 }
 
 $("#indStreams").on("click", ".streamId #streamsH4", function () {
